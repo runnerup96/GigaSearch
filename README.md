@@ -1,36 +1,30 @@
-# Web Explorer
+# Compas+ Knowledge Navigator
 
-This is a lightweight app using the [Web Research Retriever](https://github.com/langchain-ai/langchain/pull/8102).
+Это код решения на хакатон "GigaChat". 
 
-## Setup
-You only need to supply a few things.
+1) Сначала получить токены, для работы с Google Search и GigaChatAPI:
 
-In `settings()` function, supply:
+Для `GOOGLE_API_KEY` , получить отсюда https://console.cloud.google.com/apis/api/customsearch.googleapis.com/credentials
 
-* Search: Select the search tool you want to use (e.g., GoogleSearchAPIWrapper). 
-* Vectorstore: Select the vectorstore and embeddings you want to use (e.g., Chroma, OpenAIEmbeddings).
-* Select the LLM you want to use (e.g., ChatOpenAI).
+Для `GOOGLE_CSE_ID` , получить отсюда https://programmablesearchengine.google.com/
 
-To use `st.secrets` set enviorment variables in `.streamlit/secrets.toml` file.
- 
-Or, simply add environemnt variables and remove `st.secrets`: 
-```
-import os
-os.environ["GOOGLE_API_KEY"] = "YOUR_API_KEY"
-os.environ["GOOGLE_CSE_ID"] = "YOUR_CSE_ID" 
-os.environ["OPENAI_API_BASE"] = "https://api.openai.com/v1"
-os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
+Для `GIGACHAT_API_KEY`, получить отсюда https://developers.sber.ru/portal/products/gigachat-api
 
-```
 
-For `GOOGLE_API_KEY` , you could get it from [this link](https://console.cloud.google.com/apis/api/customsearch.googleapis.com/credentials).
+## Настройка
+Настройка окружения:
+1) Установить окружение conda:
+    ```conda create --name <my-env>```
+2) Активировать его:
+```conda activtate <my-env>```
+3) Установить библиотеки:
+```pip install -r requirements.txt```
 
-For `GOOGLE_CSE_ID` , you could get it from [this link](https://programmablesearchengine.google.com/)
 
-## Run
+## Запуск решения
+
+Решение запускается локально одной строчкой
 ```
 streamlit run web_explorer.py
 ```
-
-Example output:
-![example](https://github.com/langchain-ai/web-explorer/assets/122662504/f1383640-d089-492d-8757-ad743d34535f)
+Для развертывания онлайн - https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app
